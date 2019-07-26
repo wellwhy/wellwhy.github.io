@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <body id="bg">
 <style>
@@ -32,7 +33,6 @@ img {
 <script>
 var song = document.getElementById("mySong");
 song.play();
-song.currentTime = 59;
 song.addEventListener('canplay', appear, !1);
 song.addEventListener('ended',dissapear, !1);
 
@@ -46,6 +46,7 @@ function appear(){
 }
 
 function dissapear(){
+		clearTimeout(going);
         document.getElementById("wtf").style.display = "none";
 }
 
@@ -58,12 +59,13 @@ var downC = 1;
 var speedA = 6;
 var speedB = 6;
 var speedC = 6;
+var going;
 function colorChange(){
 	document.getElementById("bg").style.backgroundColor = rgb(a,b,c);
     a += Math.random() * speedA * downA;
     b+= Math.random() * speedB * downB;
     c += Math.random() * speedC * downC;
-    setTimeout(colorChange,10);
+    going = setTimeout(colorChange,10);
 }
 
 function rgb(r, g, b){
