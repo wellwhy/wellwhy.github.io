@@ -33,6 +33,7 @@ img {
 <script>
 var song = document.getElementById("mySong");
 song.play();
+song.currentTime = 59;
 song.addEventListener('canplay', appear, !1);
 song.addEventListener('ended',dissapear, !1);
 
@@ -48,6 +49,7 @@ function appear(){
 function dissapear(){
 		clearTimeout(going);
         document.getElementById("wtf").style.display = "none";
+        fade();
 }
 
 var a = (Math.random() * 216) + 40;
@@ -60,15 +62,9 @@ var speedA = 6;
 var speedB = 6;
 var speedC = 6;
 var going;
+var bg = document.getElementById("bg");
 function colorChange(){
-	document.getElementById("bg").style.backgroundColor = rgb(a,b,c);
-    a += Math.random() * speedA * downA;
-    b+= Math.random() * speedB * downB;
-    c += Math.random() * speedC * downC;
-    going = setTimeout(colorChange,10);
-}
 
-function rgb(r, g, b){
 	if(a >= 256){
     	downA = -1;
         speedA = (Math.random() * 8) + 1;
@@ -88,7 +84,27 @@ function rgb(r, g, b){
     	downB = 1;
     if(c <= 40)
     	downC = 1;
+        
+	bg.style.backgroundColor = rgb(a,b,c);
+    a += Math.random() * speedA * downA;
+    b+= Math.random() * speedB * downB;
+    c += Math.random() * speedC * downC;
+    going = setTimeout(colorChange,10);
+}
+
+function rgb(r, g, b){
   return "rgb("+r+","+g+","+b+")";
+}
+
+var fading;
+function fade(){
+	a--;
+    b--;
+    c--;
+    bg.style.backgroundColor = rgb(a,b,c);
+    fading = setTimeout(fade,10);
+    if(a == 0 && b == 0 && c == 0 )
+    	clearTimeout(fading);
 }
 
 </script>
