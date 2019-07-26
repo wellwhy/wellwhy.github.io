@@ -1,17 +1,21 @@
+<html>
+<body id="bg">
 <style>
-/*img {*/
-/*  display: block;*/
-/*  margin-left: auto;*/
-/*  margin-right: auto;*/
-/*}*/
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .middle {
-      display: block;
-  width: 320px;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform:translate(-50%, -50%);
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 340px;
+  height: 240px;
 }
 </style>
 
@@ -28,12 +32,14 @@
 <script>
 var song = document.getElementById("mySong");
 song.play();
+song.currentTime = 59;
 song.addEventListener('canplay', appear, !1);
 song.addEventListener('ended',dissapear, !1);
 
 function appear(){
-    if(song.currentTime >= 60.5){
+    if(song.currentTime >= 60.8){
         document.getElementById("wtf").style.display = "block";
+        colorChange();
     }
     else
         setTimeout(appear, 100);
@@ -43,4 +49,46 @@ function dissapear(){
         document.getElementById("wtf").style.display = "none";
 }
 
+var a = (Math.random() * 216) + 40;
+var b = (Math.random() * 216) + 40;
+var c = (Math.random() * 216) + 40;
+var downA = 1;
+var downB = 1;
+var downC = 1;
+var speedA = 6;
+var speedB = 6;
+var speedC = 6;
+function colorChange(){
+	document.getElementById("bg").style.backgroundColor = rgb(a,b,c);
+    a += Math.random() * speedA * downA;
+    b+= Math.random() * speedB * downB;
+    c += Math.random() * speedC * downC;
+    setTimeout(colorChange,10);
+}
+
+function rgb(r, g, b){
+	if(a >= 256){
+    	downA = -1;
+        speedA = (Math.random() * 8) + 1;
+    }
+	if(b >= 256){
+    	downB = -1;
+        speedB = (Math.random() * 8) + 1;
+    }
+	if(c >= 256){
+    	downC = -1;
+        speedC = (Math.random() * 8) + 1;
+    }
+        
+	if(a <= 40)
+    	downA = 1;
+    if(b <= 40)
+    	downB = 1;
+    if(c <= 40)
+    	downC = 1;
+  return "rgb("+r+","+g+","+b+")";
+}
+
 </script>
+
+</html>
