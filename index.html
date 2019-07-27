@@ -2,12 +2,20 @@
 <html>
 <body id="bg">
 <style>
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 .middle {
   position: absolute;
   margin: auto;
@@ -38,7 +46,6 @@ song.play();
 //song.currentTime = 59;
 song.addEventListener('canplay', appear, !1);
 song.addEventListener('ended',dissapear, !1);
-
 function appear(){
     if(song.currentTime >= 60.8){
         image.style.display = "block";
@@ -49,13 +56,11 @@ function appear(){
         setTimeout(appear, 1);
     }
 }
-
 function dissapear(){
 		clearTimeout(going);
         image.style.display = "none";
         fade();
 }
-
 var a = (Math.random() * 216) + 40;
 var b = (Math.random() * 216) + 40;
 var c = (Math.random() * 216) + 40;
@@ -67,18 +72,17 @@ var speedB = 6;
 var speedC = 6;
 var going;
 function colorChange(){
-
 	if(a >= 256){
     	downA = -1;
-        speedA = (Math.random() * 8) + 1;
+        speedA = (Math.random() * 6) + 2;
     }
 	if(b >= 256){
     	downB = -1;
-        speedB = (Math.random() * 8) + 1;
+        speedB = (Math.random() * 6) + 2;
     }
 	if(c >= 256){
     	downC = -1;
-        speedC = (Math.random() * 8) + 1;
+        speedC = (Math.random() * 6) + 2;
     }
         
 	if(a <= 40)
@@ -87,15 +91,14 @@ function colorChange(){
     	downB = 1;
     if(c <= 40)
     	downC = 1;
-    image.width += downA;
-    image.height+= downB;
-    bg.style.backgroundColor = rgb(a,b,c);
+    /*image.width += downA;
+    image.height+= downB;*/
+    bg.style.backgroundImage = "radial-gradient("+ rgb(a,b,c) + " , " + rgb(c,b,a) + " , " + rgb(b,a,c) + ")" ;
     a += Math.random() * speedA * downA;
     b+= Math.random() * speedB * downB;
     c += Math.random() * speedC * downC;
     going = setTimeout(colorChange,1);
 }
-
 function rgb(r, g, b){
   return "rgb("+r+","+g+","+b+")";
 }
@@ -105,12 +108,11 @@ function fade(){
 	a--;
     b--;
     c--;
-    bg.style.backgroundColor = rgb(a,b,c);
+    bg.style.backgroundImage = "linear-gradient("+ rgb(a,b,c) + " , " + rgb(c,b,a) + " , " + rgb(b,a,c) + ")" ;
     fading = setTimeout(fade,1);
     if(a == 0 && b == 0 && c == 0 )
     	clearTimeout(fading);
 }
-
 </script>
 
 </html>
