@@ -42,11 +42,15 @@ img {
 var song = document.getElementById("mySong");
 var bg = document.getElementById("bg");
 var image = document.getElementById("myImage");
-song.play();
+var songStarted = 0;
 //song.currentTime = 59;
 song.addEventListener('canplay', appear, !1);
 song.addEventListener('ended',dissapear, !1);
 function appear(){
+    if(songStarted == 0){
+	    songStarted = 1;
+	    song.play();
+    }
     if(song.currentTime >= 60.8){
         image.style.display = "block";
         colorChange();
