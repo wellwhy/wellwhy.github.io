@@ -4,12 +4,16 @@
 .middle {
   position: relative;
   margin: 100px;
+  transform-origin: 10% 10%;
+}
+spinn{
 }
 </style>
 
 <div id="mid" class="middle">
 <html>
-<h1><strong>w311why</strong> <span style="color: #808080;"><em>( wellwhy )</em></span></h1>
+<body onresize="go()">
+<h1 id="spinn" ><strong>w311why</strong> <span style="color: #808080;"><em>( wellwhy )</em></span></h1>
 <p><img src="https://raw.githubusercontent.com/wellwhy/wellwhy.github.io/master/zack-d2-face(UpRGB)(noise)(Level3).png" alt="" width="100" height="102" /></p>
 <p>i did not do anything yet exept..</p>
 <p>&nbsp;</p>
@@ -17,8 +21,25 @@
 </div>
 
 <script>
-document.getElementById("mid").style.top = "" + (Math.random() * 200 - 100) + "px";
-document.getElementById("mid").style.right = "" + (Math.random() * 200 - 100) + "px";
-document.getElementById("mid").style.left = "" + (Math.random() * 200 - 100) + "px";
+document.getElementById("mid").style.top = "" + (Math.random() * (window.innerHeight - (window.innerHeight/2))) + "px";
+document.getElementById("mid").style.left = "" + (Math.random() * (window.innerWidth - (window.innerWidth/2))) + "px";
+spin();
+
+var i = 0;
+var w = window.innerWidth;
+var h = window.innerHeight;
+document.getElementById("body").style
+function spin(){
+	document.getElementById("spinn").style.transform = "rotateY(" + i + "deg)";
+    document.getElementById("mid").style.transform = "rotateX(" + i/2 + "deg)";
+    i = Math.random() * 15;
+    setTimeout(spin,10);
+}
+
+function go(){
+document.getElementById("mid").style.top = "" + (Math.random() * (window.innerHeight - (window.innerHeight/2))) + "px";
+document.getElementById("mid").style.left = "" + (Math.random() * (window.innerWidth - (window.innerWidth/2))) + "px";
+}
 </script>
+</body>
 </html>
