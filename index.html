@@ -1,28 +1,13 @@
 <!DOCTYPE html>
 
 <style>
-html {
-    height: 100%;
-}
-body {
-    height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 .middle {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 400px;
-  height: 400px;
+  position: relative;
+  margin: 100px;
 }
 </style>
 
-<div class="middle">
+<div id="mid" class="middle">
 <html>
 <h1><strong>w311why</strong> <span style="color: #808080;"><em>( wellwhy )</em></span></h1>
 <p><img src="https://raw.githubusercontent.com/wellwhy/wellwhy.github.io/master/zack-d2-face(UpRGB)(noise)(Level3).png" alt="" width="100" height="102" /></p>
@@ -30,4 +15,10 @@ body {
 <p>&nbsp;</p>
 <p><a href="wait.html">wait</a></p>
 </div>
+
+<script>
+document.getElementById("mid").style.top = "" + (Math.random() * 200 - 100) + "px";
+document.getElementById("mid").style.right = "" + (Math.random() * 200 - 100) + "px";
+document.getElementById("mid").style.left = "" + (Math.random() * 200 - 100) + "px";
+</script>
 </html>
