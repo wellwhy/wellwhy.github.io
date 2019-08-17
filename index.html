@@ -3,8 +3,8 @@
 <style>
 .middle {
   position: relative;
-  margin: 100px;
-  transform-origin: 10% 10%;
+  height: 300px;
+  width: 300px;
 }
 spinn{
 }
@@ -21,24 +21,23 @@ spinn{
 </div>
 
 <script>
-document.getElementById("mid").style.top = "" + (Math.random() * (window.innerHeight - (window.innerHeight/2))) + "px";
-document.getElementById("mid").style.left = "" + (Math.random() * (window.innerWidth - (window.innerWidth/2))) + "px";
+var xc = (Math.random() * (window.innerWidth - 350));
+var yc = (Math.random() * (window.innerHeight - 350));
+var x = 0;
+var y = 0;
 spin();
-
-var i = 0;
 var w = window.innerWidth;
 var h = window.innerHeight;
-document.getElementById("body").style
 function spin(){
-	document.getElementById("spinn").style.transform = "rotateY(" + i + "deg)";
-    document.getElementById("mid").style.transform = "rotateX(" + i/2 + "deg)";
-    i = Math.random() * 15;
-    setTimeout(spin,10);
+document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc + "px) " + "scale(" + x + "," + y + ")";
+    x = Math.random() * .05 + .9;
+    y = Math.random() * .05 + .9;
+    setTimeout(spin,50);
 }
-
 function go(){
-document.getElementById("mid").style.top = "" + (Math.random() * (window.innerHeight - (window.innerHeight/2))) + "px";
-document.getElementById("mid").style.left = "" + (Math.random() * (window.innerWidth - (window.innerWidth/2))) + "px";
+xc = (Math.random() * (window.innerWidth - 350));
+yc = (Math.random() * (window.innerHeight - 350));
+document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc + "px) " + "scale(" + x + "," + y + ")";
 }
 </script>
 </body>
