@@ -5,19 +5,27 @@
   position: relative;
   height: 300px;
   width: 300px;
+  z-index: -1;
+}
+.td {
+    height: 300px;
+    width : 300px;
+    z-index: 1;
 }
 spinn{
 }
 </style>
-
-<div id="mid" class="middle">
 <html>
+<div id="mid" class="middle">
 <body onresize="go()">
 <h1 id="spinn" ><strong>w311why</strong> <span style="color: #808080;"><em>( wellwhy )</em></span></h1>
 <p><img src="https://raw.githubusercontent.com/wellwhy/wellwhy.github.io/master/zack-d2-face(UpRGB)(noise)(Level3).png" alt="" width="100" height="102" /></p>
 <p>i did not do anything yet exept..</p>
 <p>&nbsp;</p>
 <p><a href="wait.html">wait</a></p>
+</div>
+
+<div id="td" class="td">
 </div>
 
 <script>
@@ -37,8 +45,32 @@ document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc
 function go(){
 xc = (Math.random() * (window.innerWidth - 350));
 yc = (Math.random() * (window.innerHeight - 350));
-document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc + "px) " + "scale(" + x + "," + y + ")";
+document.getElementById("mid").style.transform = "translate(" + xc/100 + "px, " + yc/100 + "px) " + "scale(" + x + "," + y + ")";
 }
 </script>
+
+<script src="js/three.js"></script>
+<script>
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, 300/300, 0.1, 1000 );
+var container = document.getElementById("td");
+const renderer = new THREE.WebGLRenderer({container,alpha: true,});
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0xFF1493 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+camera.position.z = 5;
+renderer.setSize(300,300);
+container.appendChild( renderer.domElement );
+function animate() {
+	requestAnimationFrame( animate );
+    renderer.render( scene, camera );
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+}
+animate();
+</script>
+
+
 </body>
 </html>
