@@ -66,6 +66,7 @@ function randomPos(dimension){
 </script>
 
 <script src="js/three.js"></script>
+<script src="js/GLTFLoader.js"></script>
 <script>
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 30, 300/300, 0.1, 1000 );
@@ -74,6 +75,25 @@ const renderer = new THREE.WebGLRenderer({container,alpha: true,});
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 var material = new THREE.MeshBasicMaterial( { color: 0xFF1493 , wireframe: true} );
 var cube = new THREE.Mesh( geometry, material );
+var loader = new THREE.GLTFLoader();
+var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+renderer.gammaOutput = true;
+scene.add( light );
+
+loader.load( 'eminem.gltf', function ( gltf ) {
+
+    scene.add( gltf.scene );
+
+}, undefined, function ( error ) {
+
+	console.error( error );
+
+} );
+
+
+
+
+
 scene.add( cube );
 camera.position.z = 3.5;
 renderer.setSize(container.offsetHeight,container.offsetHeight);
@@ -83,6 +103,7 @@ function animate() {
     renderer.render( scene, camera );
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
+
 }
 animate();
 </script>
