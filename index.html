@@ -79,10 +79,15 @@ var loader = new THREE.GLTFLoader();
 var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
 renderer.gammaOutput = true;
 scene.add( light );
-
+var em;
+var center;
 loader.load( 'eminem.gltf', function ( gltf ) {
-
-    scene.add( gltf.scene );
+    em = gltf.scene;
+    var box = new THREE.Box3().setFromObject( em );
+    var center = new THREE.Vector3();
+    box.getCenter( center );
+    em.position.sub( center ); // center the model
+    scene.add( em );
 
 }, undefined, function ( error ) {
 
@@ -93,9 +98,8 @@ loader.load( 'eminem.gltf', function ( gltf ) {
 
 
 
-
 scene.add( cube );
-camera.position.z = 3.5;
+camera.position.z = 13.5;
 renderer.setSize(container.offsetHeight,container.offsetHeight);
 container.appendChild( renderer.domElement );
 function animate() {
@@ -103,6 +107,8 @@ function animate() {
     renderer.render( scene, camera );
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
+    em.rotation.x +=.01;
+    em.rotation.y +=.01;
 
 }
 animate();
