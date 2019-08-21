@@ -81,7 +81,7 @@ renderer.gammaOutput = true;
 scene.add( light );
 var em;
 var center;
-loader.load( 'eminem.gltf', function ( gltf ) {
+loader.load( 'eminemGun.gltf', function ( gltf ) {
     em = gltf.scene;
     scene.add( em );
 
@@ -95,7 +95,7 @@ loader.load( 'eminem.gltf', function ( gltf ) {
 
 
 /*scene.add( cube );*/
-camera.position.z = 13.5;
+camera.position.z = 15.5;
 renderer.setSize(container.offsetHeight,container.offsetHeight);
 container.appendChild( renderer.domElement );
 function animate() {
