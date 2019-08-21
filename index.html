@@ -9,8 +9,8 @@
 }
 .td {
     position: absolute;
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     /*border: 1px solid black; */
     z-index: 1;
 }
@@ -59,9 +59,9 @@ document.getElementById("td").style.transform = "translate(" + sx + "px, " + sy 
 
 function randomPos(dimension){
     if(dimension == 0)
-        return (Math.random() * (window.innerWidth - 110));
+        return (Math.random() * (window.innerWidth - 210));
     else
-        return (Math.random() * (window.innerHeight - 110));
+        return (Math.random() * (window.innerHeight - 210));
 }
 </script>
 
@@ -76,17 +76,13 @@ var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 var material = new THREE.MeshBasicMaterial( { color: 0xFF1493 , wireframe: true} );
 var cube = new THREE.Mesh( geometry, material );
 var loader = new THREE.GLTFLoader();
-var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 2 );
 renderer.gammaOutput = true;
 scene.add( light );
 var em;
 var center;
-loader.load( 'eminem.gltf', function ( gltf ) {
+loader.load( 'em_center_2.gltf', function ( gltf ) {
     em = gltf.scene;
-    var box = new THREE.Box3().setFromObject( em );
-    var center = new THREE.Vector3();
-    box.getCenter( center );
-    em.position.sub( center ); // center the model
     scene.add( em );
 
 }, undefined, function ( error ) {
