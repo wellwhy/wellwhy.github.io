@@ -2,22 +2,25 @@
 
 <style>
 .middle {
-  position: relative;
+  position: absolute;
   height: 300px;
   width: 300px;
-  z-index: 1;
+  z-index: -1;
 }
 .td {
-    height: 300px;
-    width : 300px;
-    z-index: 2;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    /*border: 1px solid black; */
+    z-index: 1;
 }
 spinn{
 }
 </style>
 <html>
-<div id="mid" class="middle">
 <body onresize="go()">
+
+<div id="mid" class="middle">
 <h1 id="spinn" ><strong>w311why</strong> <span style="color: #808080;"><em>( wellwhy )</em></span></h1>
 <p><img src="https://raw.githubusercontent.com/wellwhy/wellwhy.github.io/master/zack-d2-face(UpRGB)(noise)(Level3).png" alt="" width="100" height="102" /></p>
 <p>i did not do anything yet exept..</p>
@@ -29,10 +32,13 @@ spinn{
 </div>
 
 <script>
-var xc = (Math.random() * (window.innerWidth - 350));
-var yc = (Math.random() * (window.innerHeight - 350));
+var xc = (Math.random() * (window.innerWidth - 305));
+var yc = (Math.random() * (window.innerHeight - 305));
 var x = 0;
 var y = 0;
+var sx = parseInt(randomPos(0));
+var sy = parseInt(randomPos(1));
+document.getElementById("td").style.transform = "translate(" + sx + "px, " + sy + "px)";
 spin();
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -43,24 +49,34 @@ document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc
     setTimeout(spin,50);
 }
 function go(){
-xc = (Math.random() * (window.innerWidth - 350));
-yc = (Math.random() * (window.innerHeight - 350));
-document.getElementById("mid").style.transform = "translate(" + xc/100 + "px, " + yc/100 + "px) " + "scale(" + x + "," + y + ")";
+xc = (Math.random() * (window.innerWidth - 305));
+yc = (Math.random() * (window.innerHeight - 305));
+var sx = parseInt(randomPos(0));
+var sy = parseInt(randomPos(1));
+document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc + "px) " + "scale(" + x + "," + y + ")";
+document.getElementById("td").style.transform = "translate(" + sx + "px, " + sy + "px)";
+}
+
+function randomPos(dimension){
+    if(dimension == 0)
+        return (Math.random() * (window.innerWidth - 110));
+    else
+        return (Math.random() * (window.innerHeight - 110));
 }
 </script>
 
 <script src="js/three.js"></script>
 <script>
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, 300/300, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera( 30, 300/300, 0.1, 1000 );
 var container = document.getElementById("td");
 const renderer = new THREE.WebGLRenderer({container,alpha: true,});
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 var material = new THREE.MeshBasicMaterial( { color: 0xFF1493 } );
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
-camera.position.z = 5;
-renderer.setSize(300,300);
+camera.position.z = 3.5;
+renderer.setSize(container.offsetHeight,container.offsetHeight);
 container.appendChild( renderer.domElement );
 function animate() {
 	requestAnimationFrame( animate );
