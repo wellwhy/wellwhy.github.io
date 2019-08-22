@@ -88,6 +88,8 @@ var em;
 var center;
 loader.load( 'eminemGun.gltf', function ( gltf ) {
     em = gltf.scene;
+    em.rotation.x = Math.random() * 360;
+    em.rotation.y = Math.random() * 360;
     scene.add( em );
 
 }, undefined, function ( error ) {
