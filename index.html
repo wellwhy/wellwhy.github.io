@@ -21,6 +21,12 @@
     /*border: 1px solid black; */
     z-index: 1;
 }
+p{
+    color: black;
+}
+strong{
+    color: black;
+}
 #link {
     pointer-events: auto;
 }
@@ -42,6 +48,20 @@ spinn{
 </div>
 
 <script>
+var d = new Date();
+var n = d.getHours();
+time();
+function time(){
+    if(n > 19 || n < 7){
+        let myElements = document.querySelectorAll("p");
+        for (let i = 0; i < myElements.length; i++)
+            myElements[i].style.color = "white";
+        myElements = document.querySelectorAll("strong");
+        for (let i = 0; i < myElements.length; i++)
+            myElements[i].style.color = "white";
+        document.body.style.backgroundColor = "black";
+    }
+}
 var xc = (Math.random() * (window.innerWidth - 305));
 var yc = (Math.random() * (window.innerHeight - 305));
 var x = 0;
@@ -66,7 +86,6 @@ var sy = parseInt(randomPos(1));
 document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc + "px) " + "scale(" + x + "," + y + ")";
 document.getElementById("td").style.transform = "translate(" + sx + "px, " + sy + "px)";
 }
-
 function randomPos(dimension){
     if(dimension == 0)
         return (Math.random() * (window.innerWidth - 560));
@@ -96,16 +115,9 @@ loader.load( 'eminemGun.gltf', function ( gltf ) {
     em.rotation.x = Math.random() * 360;
     em.rotation.y = Math.random() * 360;
     scene.add( em );
-
 }, undefined, function ( error ) {
-
 	console.error( error );
-
 } );
-
-
-
-
 /*scene.add( cube );*/
 camera.position.z = 15.5;
 renderer.setSize(container.offsetHeight,container.offsetHeight);
@@ -117,7 +129,6 @@ function animate() {
     cube.rotation.y += 0.01;
     em.rotation.x +=.01;
     em.rotation.y +=.01;
-
 }
 animate();
 </script>
