@@ -1,0 +1,281 @@
+<!-- <!DOCTYPE html> REGULAR OLD FIGURE
+
+<style>
+.middle {
+  pointer-events: none;
+  pointer: default;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  z-index: -1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.td {
+    pointer-events: none;
+    position: absolute;
+    height: 550px;
+    width: 550px;
+    /*border: 1px solid black; */
+    z-index: 1;
+}
+p{
+    color: black;
+}
+strong{
+    color: black;
+}
+#link {
+    pointer-events: auto;
+}
+spinn{
+}
+</style>
+<html>
+<body onresize="go()">
+
+<div id="mid" class="middle">
+<h1 id="spinn" ><strong>w311why</strong> <span style="color: #808080;"><em>( wellwhy )</em></span></h1>
+<p><img src="https://raw.githubusercontent.com/wellwhy/wellwhy.github.io/master/zack-d2-face(UpRGB)(noise)(Level3).png" alt="" width="100" height="102" /></p>
+<p>i did not do anything yet exept..</p>
+<p>&nbsp;</p>
+<p id="link"><a href="wait.html">wait</a></p>
+</div>
+
+<div id="td" class="td">
+</div>
+
+<script>
+var d = new Date();
+var n = d.getHours();
+time();
+function time(){
+    if(n > 19 || n < 7){
+        let myElements = document.querySelectorAll("p");
+        for (let i = 0; i < myElements.length; i++)
+            myElements[i].style.color = "white";
+        myElements = document.querySelectorAll("strong");
+        for (let i = 0; i < myElements.length; i++)
+            myElements[i].style.color = "white";
+        document.body.style.backgroundColor = "black";
+    }
+}
+var xc = (Math.random() * (window.innerWidth - 305));
+var yc = (Math.random() * (window.innerHeight - 305));
+var x = 0;
+var y = 0;
+var sx = parseInt(randomPos(0));
+var sy = parseInt(randomPos(1));
+document.getElementById("td").style.transform = "translate(" + sx + "px, " + sy + "px)";
+spin();
+var w = window.innerWidth;
+var h = window.innerHeight;
+function spin(){
+document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc + "px) " + "scale(" + x + "," + y + ")";
+    x = Math.random() * .05 + .9;
+    y = Math.random() * .05 + .9;
+    setTimeout(spin,50);
+}
+function go(){
+xc = (Math.random() * (window.innerWidth - 305));
+yc = (Math.random() * (window.innerHeight - 305));
+var sx = parseInt(randomPos(0));
+var sy = parseInt(randomPos(1));
+document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc + "px) " + "scale(" + x + "," + y + ")";
+document.getElementById("td").style.transform = "translate(" + sx + "px, " + sy + "px)";
+}
+function randomPos(dimension){
+    if(dimension == 0)
+        return (Math.random() * (window.innerWidth - 560));
+    else
+        return (Math.random() * (window.innerHeight - 560));
+}
+</script>
+
+<script src="js/three.js"></script>
+<script src="js/GLTFLoader.js"></script>
+<script src="js/DDSLoader.js"></script>
+<script>
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 30, 300/300, 0.1, 1000 );
+var container = document.getElementById("td");
+const renderer = new THREE.WebGLRenderer({container,alpha: true,});
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0xFF1493 , wireframe: true} );
+//var cube = new THREE.Mesh( geometry, material );
+var loader = new THREE.GLTFLoader();
+var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 2 );
+renderer.gammaOutput = true;
+scene.add( light );
+
+{
+  const loader2 = new THREE.CubeTextureLoader();
+  const texture = loader2.load([
+    'spacecubemap/x+.png',
+    'spacecubemap/x-.png',
+    'spacecubemap/y+.png',
+    'spacecubemap/y-.png',
+    'spacecubemap/z+.png',
+    'spacecubemap/z-.png',
+  ]);
+  scene.background = texture;
+}
+
+
+var em;
+var center;
+loader.load( 'eminemGun.gltf', function ( gltf ) {
+    em = gltf.scene;
+    em.rotation.x = Math.random() * 360;
+    em.rotation.y = Math.random() * 360;
+    scene.add( em );
+}, undefined, function ( error ) {
+	console.error( error );
+} );
+/*scene.add( cube );*/
+camera.position.z = 15.5;
+renderer.setSize(container.offsetHeight,container.offsetHeight);
+container.appendChild( renderer.domElement );
+function animate() {
+	requestAnimationFrame( animate );
+    renderer.render( scene, camera );
+    em.rotation.x +=.01;
+    em.rotation.y +=.01;
+    camera.rotation.z += .001;
+}
+animate();
+</script>
+
+
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+
+<style>
+@font-face {
+    font-family: "Goth";
+    src: url("helvetica.woff");
+}
+.middle {
+    cursor:default;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  z-index: -1;
+}
+.td {
+    pointer-events: none;
+    cursor:grabbing;
+    margin:auto;
+    position:relative;
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    z-index: 1;
+}
+
+#spinn{
+    font-family: 'Goth';
+}
+</style>
+<html>
+<body onresize="go()">
+
+<div id="mid" class="middle" draggable="false" selectable>
+<h1 id="spinn" ><strong>w311why</strong> <span style="color: #808080;"><em>( wellwhy )</em></span></h1>
+<p><img src="https://raw.githubusercontent.com/wellwhy/wellwhy.github.io/master/zack-d2-face(UpRGB)(noise)(Level3).png" alt="" width="100" height="102" /></p>
+<p>i did not do anything yet exept..</p>
+<p>&nbsp;</p>
+<p id = "link"><a href="wait.html">wait</a></p>
+</div>
+
+<div id="td" class="td">
+</div>
+<script>
+var xc = (Math.random() * (window.innerWidth - 305));
+var yc = (Math.random() * (window.innerHeight - 305));
+var x = 0;
+var y = 0;
+var sx = parseInt(randomPos(0));
+var sy = parseInt(randomPos(1));
+document.getElementById("td").style.transform = "translate(" + sx + "px, " + sy + "px)";
+document.getElementById("td").style.position = "relative";
+spin();
+var w = window.innerWidth;
+var h = window.innerHeight;
+function spin(){
+document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc + "px) " + "scale(" + x + "," + y + ")";
+    x = Math.random() * .05 + .9;
+    y = Math.random() * .05 + .9;
+    setTimeout(spin,50);
+}
+function go(){
+xc = (Math.random() * (window.innerWidth - 305));
+yc = (Math.random() * (window.innerHeight - 305));
+var sx = parseInt(randomPos(0));
+var sy = parseInt(randomPos(1));
+document.getElementById("mid").style.transform = "translate(" + xc + "px, " + yc + "px) " + "scale(" + x + "," + y + ")";
+document.getElementById("td").style.transform = "translate(" + sx + "px, " + sy + "px)";
+}
+function randomPos(dimension){
+    if(dimension == 0)
+        return (Math.random() * (window.innerWidth - 510));
+    else
+        return (Math.random() * (window.innerHeight - 510));
+}
+</script>
+
+<script src="js/three.js"></script>
+<script src="js/GLTFLoader.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<script>
+$(function() {
+    $( "#td" ).draggable({stack: 'div'});
+
+  });
+
+</script>
+
+<script>
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 30, 300/300, 0.1, 1000 );
+var container = document.getElementById("td");
+const renderer = new THREE.WebGLRenderer({container,alpha: true,});
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0xFF1493 , wireframe: true} );
+var cube = new THREE.Mesh( geometry, material );
+var loader = new THREE.GLTFLoader();
+var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 2 );
+renderer.gammaOutput = true;
+scene.add( light );
+var em;
+var center;
+loader.load( 'eminemGun.gltf', function ( gltf ) {
+    em = gltf.scene;
+    scene.add( em );
+}, undefined, function ( error ) {
+	console.error( error );
+} );
+camera.position.z = 15.5;
+renderer.setSize(container.offsetHeight,container.offsetHeight);
+container.appendChild( renderer.domElement );
+function animate() {
+	requestAnimationFrame( animate );
+    renderer.render( scene, camera );
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    em.rotation.x +=.01;
+    em.rotation.y +=.01;
+}
+animate();
+</script>
+
+
+</body>
+</html> -->
