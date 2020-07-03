@@ -1,241 +1,44 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="style.css" rel="stylesheet" type="text/css">
 
-<style>
-.middle {
-  pointer-events: none;
-  pointer: default;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 300px;
-  width: 300px;
-  z-index: 1;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.middledash {
-  pointer-events: none;
-  pointer: default;
-  position: absolute;
-  height: 315px;
-  width: 315px;
-  z-index: 1;
-  /* border-style: dashed;
-  border-color: #ffffff;
-  border-width: 5px; */
-  /*background-color: rgba(255,255,255,0.5);*/
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.three_d_scene {
-    pointer-events: none;
-    position: absolute;
-    top:0px;
-    left:0px;
-    right:0px;
-    bottom:0px;
-    height: 10px;
-    width: 10px;
-    /*border: 1px solid black; */
-    z-index: -1;
-}
-
-.beastboy {
-    pointer-events: none;
-  pointer: default;
-  position: absolute;
-  height: 190px;
-  width: 204px;
-  z-index: 1;
-  /* border-style: dashed;
-  border-color: #ffffff;
-  border-width: 5px; */
-  /*background-color: rgba(255,255,255,0.5);*/
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-p{
-    color: white;
-    line-height: 0;
-}
-strong{
-    color: white;
-}
-#link {
-    pointer-events: auto;
-}
-</style>
-<html>
 <body onresize="repositionElements()">
-
-<div id="middash" class="middledash">
-<div id="mid" class="middle">
-	
-<h1><strong>w311why</strong> <span style="color: #ff00ff;"><em>( wellwhy )</em></span></h1>
-<p><img src="https://raw.githubusercontent.com/wellwhy/wellwhy.github.io/master/zack-d2-face(UpRGB)(noise)(Level3).png" alt="" width="100" height="102" /></p>
-<p>jake E</p>
-<!-- 	<p id="link" > <a style="color: #00ff00;" href="https://www.github.com/wellwhy">github.com/wellwhy</a></p> -->
-	<p id="link" > <a style="color: #00ffff;" href="https://www.are.na/wellwhy">are.na</a></p>
-	<p id="link" > <a style="color: #ff7700;" href="https://soundcloud.com/wellwhy">soundcloud</a></p>
-<p>&nbsp;</p>
-<p id="link" ><a style="color: #ff00ff;" href="wait.html">wait</a></p>
-
-</div>
-</div>
-
-<div id="three_d_scene" class="three_d_scene"></div>
-
-<div id="beastboy" class="beastboy">
-    <img src="animated.gif" alt="" width="204" height="190" />
-</div>
-
-<video poster="https://raw.githubusercontent.com/wellwhy/wellwhy.github.io/master/click.gif" 
-    id="videobox" width="256" height="256" loop onclick="if(this.currentTime < 2) this.currentTime = 2; this.paused ? this.play() : this.pause()">
-    <source poster="https://raw.githubusercontent.com/wellwhy/wellwhy.github.io/master/poster.gif" id="ut"src="http://www.slixstix.com/jake/textures.mp4" type="video/mp4">
-</video>
+    <!-- <div id="rss" class="marquee"> -->
+        <!-- <p> -->
+            <!-- <img class="button" src="play.svg"></img> -->
+            <!-- <b class="marquee_text">WALK A</b> -->
+        <!-- </p> -->
+    <!-- </div> -->
+<div id="bg"></div>
+<div id="three_js_container_1"></div>
+<img id="ui" src="ui.svg"></img>
+</body>
 
 <script>
+var three_js_container_1 = document.getElementById("three_js_container_1");
+var bg = document.getElementById("bg");
 
-var xc = parseInt(randomPos(0,340,340));
-var yc = parseInt(randomPos(1,340,340));
-var xc2 = parseInt(randomPos(0,275,275));
-var yc2 = parseInt(randomPos(1,275,275));
-var xc3 = parseInt(randomPos(0,210,200));
-var yc3 = parseInt(randomPos(1,210,200));
-var x = 0;
-var y = 0;
-var playing = false;
-//
-document.getElementById("three_d_scene").style.width = "" + window.innerWidth + "px";
-document.getElementById("three_d_scene").style.height = "" + window.innerHeight + "px";
-//
-document.getElementById("videobox").style.transform = "translate(" + xc2 + "px, " + yc2 + "px)";
-//
-document.getElementById("beastboy").style.transform = "translate(" + xc3 + "px, " + yc3 + "px)";
-//
-twitch();
-var w = window.innerWidth;
-var h = window.innerHeight;
-function twitch(){
-document.getElementById("mid").style.transform = "scale(" + x + "," + y + ")";
-document.getElementById("middash").style.transform = "translate(" + xc + "px, " + yc + "px)";
-    x = Math.random() * .05 + .9;
-    y = Math.random() * .05 + .9;
-    setTimeout(twitch,50);
-}
+repositionElements();
+
 function repositionElements(){
-//
-xc = parseInt(randomPos(0,340,340));
-yc = parseInt(randomPos(1,340,340));
-document.getElementById("mid").style.transform = "scale(" + x + "," + y + ")";
-document.getElementById("middash").style.transform = "translate(" + xc + "px, " + yc + "px)";
-//
-//
-xc2 = parseInt(randomPos(0,275,275));
-yc2 = parseInt(randomPos(1,275,275));
-document.getElementById("videobox").style.transform = "translate(" + xc2 + "px, " + yc2 + "px)";
-//
-xc3 = parseInt(randomPos(0,210,200));
-yc3 = parseInt(randomPos(1,210,200));
-document.getElementById("beastboy").style.transform = "translate(" + xc3 + "px, " + yc3 + "px)";
-//
-document.getElementById("three_d_scene").style.width = "" + window.innerWidth + "px";
-document.getElementById("three_d_scene").style.height = "" + window.innerHeight + "px";
-//
-}
-function randomPos(dimension, sizex, sizey){
-    if(dimension == 0)
-        return (Math.random() * (window.innerWidth - sizex));
-    else
-        return (Math.random() * (window.innerHeight - sizey));
+three_js_container_1.style.width = "" + window.innerWidth + "px";
+three_js_container_1.style.height = "" + window.innerHeight + "px";
+bg.style.width = "" + window.innerWidth + "px";
+bg.style.height = "" + window.innerHeight + "px";
 }
 </script>
 
+<!-- <script id="fragmentShader" type="x-shader/x-fragment">
+</script>
+
+<!-- <script id="vertexShader" type="x-shader/x-vertex"></script>
+</script> --> -->
+
+<script src="bg.js"></script>
+
+<script src="js/jquery-3.5.0.min.js"></script>
 <script src="js/three.js"></script>
 <script src="js/GLTFLoader.js"></script>
 <script src="js/DDSLoader.js"></script>
-<script>
-var scene = new THREE.Scene();
-var container = document.getElementById("three_d_scene");
-var camera = new THREE.PerspectiveCamera( 35, container.offsetWidth/container.offsetHeight, 0.1, 1000 );
-const renderer = new THREE.WebGLRenderer({container,alpha: true,});
-var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-var material = new THREE.MeshBasicMaterial( { color: 0xFF1493 , wireframe: true} );
-//var cube = new THREE.Mesh( geometry, material );
-var loader = new THREE.GLTFLoader();
-var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 2 );
-renderer.gammaOutput = true;
-scene.add( light );
 
-{
-  const loader2 = new THREE.CubeTextureLoader();
-  const texture = loader2.load([
-    'spacecubemap3/x+.png',
-    'spacecubemap3/x-.png',
-    'spacecubemap3/y+.png',
-    'spacecubemap3/y-.png',
-    'spacecubemap3/z+.png',
-    'spacecubemap3/z-.png',
-  ]);
-  scene.background = texture;
-}
-
-
-var em, world;
-var center;
-loader.load( 'eminemGun.gltf', function ( gltf ) {
-    em = gltf.scene;
-    em.rotation.x = Math.random() * 360;
-    em.rotation.y = Math.random() * 360;
-    scene.add( em );
-}, undefined, function ( error ) {
-	console.error( error );
-} );
-
-loader.load( 'facingworldshehe6.gltf', function ( gltf ) {
-    world = gltf.scene;
-    scene.add( world );
-    world.position.set(0, -10, -30);
-}, undefined, function ( error ) {
-	console.error( error );
-} );
-/*scene.add( cube );*/
-camera.position.z = 15.5;
-renderer.setSize(container.offsetWidth,container.offsetHeight);
-container.appendChild( renderer.domElement );
-function animate() {
-    renderer.setSize(container.offsetWidth,container.offsetHeight);
-    // camera.aspect = container.offsetWidth/container.offsetHeight;
-    // camera.updateProjectionMatrix();
-	requestAnimationFrame( animate );
-    renderer.render( scene, camera );
-    em.rotation.x +=.005;
-    em.rotation.y +=.005;
-    camera.rotation.z += .0005;
-}
-
-window.addEventListener( 'resize', onWindowResize, false );
-
-function onWindowResize(){
-
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize( window.innerWidth, window.innerHeight );
-
-}
-animate();
-</script>
-
-
-</body>
-</html>
+<script src="js/scene.js"></script>
