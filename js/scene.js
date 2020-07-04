@@ -51,7 +51,8 @@ var model_1;
 var mixer;
 var helper;
 var skeleton_1;
-loader.load( 'xnlara_test7_decreasedmaterials_compressed.gltf', function ( gltf ) {
+// loader.load( 'marie2020_2.glb', function ( gltf ) {
+loader.load( 'mary.glb', function ( gltf ) {
     gltf.scene.traverse( function( node ) {
         if ( node.isMesh ) { 
             node.castShadow = true;
