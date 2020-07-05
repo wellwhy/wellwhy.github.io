@@ -13,6 +13,7 @@ var loader = new THREE.GLTFLoader();
 // scene.add(directionalLight.target);
 var light = new THREE.HemisphereLight( 0x000000, 0xffffff, 1.5 );
 renderer.gammaOutput = true;
+renderer.setPixelRatio( 1.0 );
 scene.add( light );
 
 function vertexShader() {
