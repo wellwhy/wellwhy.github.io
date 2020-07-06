@@ -13,7 +13,7 @@ var loader = new THREE.GLTFLoader();
 // scene.add(directionalLight.target);
 var light = new THREE.HemisphereLight( 0x000000, 0xffffff, 1.5 );
 renderer.gammaOutput = true;
-renderer.setPixelRatio( 1.0 );
+renderer.setPixelRatio( window.devicePixelRatio );
 scene.add( light );
 
 function vertexShader() {
@@ -52,8 +52,10 @@ var model_1;
 var mixer;
 var helper;
 var skeleton_1;
-// loader.load( 'marie2020_2.glb', function ( gltf ) {
-loader.load( 'mary.glb', function ( gltf ) {
+THREE.DRACOLoader.setDecoderPath( 'js/draco' );
+loader.setDRACOLoader( new THREE.DRACOLoader() );
+loader.load( 'marie/marierose2.gltf', function ( gltf ) {
+// loader.load( 'mary.glb', function ( gltf ) {
     gltf.scene.traverse( function( node ) {
         if ( node.isMesh ) { 
             node.castShadow = true;
