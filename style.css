@@ -13,7 +13,7 @@ p{
     color: white;
 }
 * {
-   cursor: url('teddy.cur'), pointer;
+   cursor: url('teddy.png'), pointer;
 }
 body {
     padding: 0px;
