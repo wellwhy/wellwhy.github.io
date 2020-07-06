@@ -13,7 +13,7 @@ p{
     color: white;
 }
 * {
-   cursor: url('cursor.png'), pointer;
+   cursor: url('teddy.cur'), pointer;
 }
 body {
     padding: 0px;
@@ -121,6 +121,7 @@ body {
     width: 1000px;
     padding-left: 10px;
     padding-bottom: 10px;
+    pointer-events: none;
 }
 
 #uimobile{
@@ -130,6 +131,7 @@ body {
     left:50%;
     transform: translateX(-50%);
     padding-bottom:2.5vw;
+    pointer-events: none;
     /* padding: auto; */
 }
 
