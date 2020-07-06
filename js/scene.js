@@ -52,10 +52,8 @@ var model_1;
 var mixer;
 var helper;
 var skeleton_1;
-THREE.DRACOLoader.setDecoderPath( 'js/draco' );
-loader.setDRACOLoader( new THREE.DRACOLoader() );
-loader.load( 'marie/marierose2.gltf', function ( gltf ) {
-// loader.load( 'mary.glb', function ( gltf ) {
+//loader.load( 'marie/marierose2.gltf', function ( gltf ) {
+loader.load( 'mary.glb', function ( gltf ) {
     gltf.scene.traverse( function( node ) {
         if ( node.isMesh ) { 
             node.castShadow = true;
