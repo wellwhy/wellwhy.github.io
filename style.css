@@ -1,6 +1,8 @@
 @font-face {
     font-family: "ff";
-    src: url("ff.woff") format('woff');
+    src: url("ff.woff") format('woff'),
+         url("ff.woff2") format('woff2'),
+         url("ff.ttf") format('ttf');
 }
 p{
     color:white;
