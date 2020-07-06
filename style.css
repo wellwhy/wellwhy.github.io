@@ -123,6 +123,16 @@ body {
     padding-bottom: 10px;
 }
 
+#uimobile{
+    position: fixed;
+    bottom:0px;
+    width: 95%;
+    left:50%;
+    transform: translateX(-50%);
+    padding-bottom:10px;
+    /* padding: auto; */
+}
+
 @media screen and (max-width: 1050px) {
     #ui{
         width: 750px;
