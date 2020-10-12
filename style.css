@@ -45,6 +45,7 @@ body {
     animation: scrolling 20s linear infinite;
 
     opacity:.85;
+    image-rendering: pixelated;
     pointer-events: none;
     position: absolute;
     top:0px;
