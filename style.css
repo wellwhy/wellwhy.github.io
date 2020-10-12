@@ -21,7 +21,7 @@ body {
     /* background:rgb(56, 56, 56); */
     /* background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#ffffff)) fixed; */
     /* background: -webkit-gradient(linear, left top, left bottom, from(#006823), to(#00a030)) fixed; */
-    background: -webkit-gradient(linear, left top, left bottom, from(#680000), to(#a00000)) fixed;
+        background: -webkit-gradient(linear, left top, left bottom, from(rgb(0 0 0)), to(rgb(134 134 134))) fixed;
 }
 
 #three_js_container_1 {
