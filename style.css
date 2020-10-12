@@ -38,7 +38,7 @@ body {
 
 
 #bg {
-    background: url("fsjal_ani2.gif") repeat;
+    background: url("fsjal_ani.gif") repeat;
     -webkit-animation: scrolling 20s linear infinite;
     -moz-animation: scrolling 20s linear infinite;
     -o-animation: scrolling 20s linear infinite;
@@ -78,7 +78,7 @@ body {
       background-position: 0 0;
   }
   to{
-      background-position: -460px -578px;
+      background-position: -500px -500px;
   }
 }
 
