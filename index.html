@@ -4,6 +4,7 @@
 
 <body onresize="repositionElements()">
 
+<div id="led"></div>
 <div id="bg"></div>
 <div id="three_js_container_1"></div>
 <img id="ui" src="ui.svg"></img>
@@ -27,6 +28,7 @@ else{
 
 var three_js_container_1 = document.getElementById("three_js_container_1");
 var bg = document.getElementById("bg");
+var led = document.getElementById("led");
 
 repositionElements();
 
@@ -35,6 +37,9 @@ three_js_container_1.style.width = "" + window.innerWidth + "px";
 three_js_container_1.style.height = "" + window.innerHeight + "px";
 bg.style.width = "" + window.innerWidth + "px";
 bg.style.height = "" + window.innerHeight + "px";
+
+led.style.width = "" + window.innerWidth + "px";
+led.style.height = "" + window.innerHeight + "px";
 }
 </script>
 
