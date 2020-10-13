@@ -61,7 +61,7 @@ body {
     background: url("pixel.png") repeat;
 
     opacity:.85;
-    mix-blend-mode: darken;
+    mix-blend-mode: multiply;
     pointer-events: none;
     position: absolute;
     top:0px;
