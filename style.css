@@ -58,7 +58,7 @@ body {
 }
 
 #led{
-    background: url("led_hole2.svg") repeat;
+    background: url("pixel.png") repeat;
 
     opacity:.85;
     mix-blend-mode: darken;
