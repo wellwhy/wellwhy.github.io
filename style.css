@@ -44,7 +44,7 @@ body {
     -o-animation: scrolling 20s linear infinite;
     animation: scrolling 20s linear infinite;
 
-    opacity:.85;
+    opacity:.95;
     image-rendering: pixelated;
     pointer-events: none;
     position: absolute;
@@ -61,7 +61,7 @@ body {
     background: url("pixel.png") repeat;
 
     opacity:.85;
-    mix-blend-mode: multiply;
+    mix-blend-mode: hard-light;
     pointer-events: none;
     position: absolute;
     top:0px;
