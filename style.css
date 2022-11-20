@@ -48,20 +48,17 @@ body {
 
 
 #bg {
-    background: url("termsb.gif") repeat;
+    background: url(termsb.gif) repeat;
     -webkit-animation: scrolling 20s linear infinite;
     -moz-animation: scrolling 20s linear infinite;
     -o-animation: scrolling 20s linear infinite;
     animation: scrolling 20s linear infinite;
-
-    opacity:.95;
-    image-rendering: pixelated;
     pointer-events: none;
     position: absolute;
-    top:0px;
-    left:0px;
-    right:0px;
-    bottom:0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
     height: 10px;
     width: 10px;
     z-index: -2;
@@ -223,4 +220,11 @@ body {
     bottom:0px;
     max-width:100%;
     /* height: auto; does nothing b/c default is auto but this is what it is currently*/
+}
+
+.black{
+    color: black;
+    background-color: black;
+    overflow: hidden;
+    position: absolute;
 }
