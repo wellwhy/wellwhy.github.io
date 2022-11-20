@@ -4,16 +4,24 @@
          url("ff.woff2") format('woff2'),
          url("ff.ttf") format('ttf');
 }
+audio{
+    margin: 0px;
+    padding: 0px;
+}
 p{
     color:white;
     font-family: ff;
+    font-size: 2em;
+    width:fit-content;
+    margin:0px;
 }
 
 .white{
     color: white;
 }
 * {
-   cursor: url('teddy.png'), pointer;
+   cursor: url('crosshaircursor.png') 16 16, pointer !important;
+   cursor: url('crosshaircursor.png') 16 16, default !important;
 }
 body {
     padding: 0px;
@@ -33,12 +41,14 @@ body {
     bottom:0px;
     height: 10px;
     width: 10px;
-    z-index: -1;
+    z-index: 50;
+    overflow: hidden;
+    filter: drop-shadow(74px 78px 60px #000000bb);
 }
 
 
 #bg {
-    background: url("bulletswellwhycom.gif") repeat;
+    background: url("termsb.gif") repeat;
     -webkit-animation: scrolling 20s linear infinite;
     -moz-animation: scrolling 20s linear infinite;
     -o-animation: scrolling 20s linear infinite;
@@ -58,7 +68,7 @@ body {
 }
 
 #led{
-    background: url("pixel.png") repeat;
+    background: url("pixel.png")     repeat;
 
     opacity:.85;
     mix-blend-mode: hard-light;
@@ -160,4 +170,57 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.pinkify{
+    filter: blur(0.05em) contrast(2.5);
+    overflow: hidden;
+    color: #ba0000;
+    filter: url(#tint) blur(0.085em) contrast(1) hue-rotate(135deg);
+}
+
+.rainbow{
+    filter: blur(0.05em) contrast(2.5);
+    overflow: hidden;
+    color: #ba0000;
+    /* filter: saturate(1.0) contrast(3); */
+    background: linear-gradient(135deg, #000000 45%, rgb(100 53 53) 50%, #000000 55%);
+    /* background: linear-gradient(0deg, #1de840, #1ddde8, #2b1de8); */
+    background-size: 1000% 1000%;
+    -webkit-animation: rainbow 1s ease-in-out infinite;
+    -z-animation: rainbow 1s ease-in-out infinite;
+    -o-animation: rainbow 1s ease-in-out infinite;
+    animation: rainbow 3s ease-in infinite;
+}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 0%}
+    100%{background-position:100% 0%}
+}
+
+.sharp{
+    pointer-events: none;
+    image-rendering: pixelated;
+    background-color: black;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    max-width:100%;
+    /* height: auto; does nothing b/c default is auto but this is what it is currently*/
 }

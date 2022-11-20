@@ -3,7 +3,7 @@ var clock = new THREE.Clock();
 var scene = new THREE.Scene();
 var container = document.getElementById("three_js_container_1");
 var camera = new THREE.PerspectiveCamera( 15, container.offsetWidth/container.offsetHeight, 0.1, 1000 );
-const renderer = new THREE.WebGLRenderer({container,alpha: true,antialias:true});
+const renderer = new THREE.WebGLRenderer({container,alpha: true,antialias:false});
 renderer.setClearColor( 0x000000, 0 ); 
 var loader = new THREE.GLTFLoader();
 // var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
@@ -11,9 +11,9 @@ var loader = new THREE.GLTFLoader();
 // directionalLight.target.position.set(-5, 0, -10);
 // scene.add(directionalLight);
 // scene.add(directionalLight.target);
-var light = new THREE.HemisphereLight( 0x000000, 0xffffff, 1.5 );
+var light = new THREE.HemisphereLight( 0xcccccc, 0xffffff, 1 );
 renderer.gammaOutput = true;
-renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setPixelRatio( window.devicePixelRatio / 3 );
 scene.add( light );
 
 function vertexShader() {
@@ -53,7 +53,7 @@ var mixer;
 var helper;
 var skeleton_1;
 //loader.load( 'marie/marierose2.gltf', function ( gltf ) {
-loader.load( 'mary.glb', function ( gltf ) {
+loader.load( 'loser.glb', function ( gltf ) {
     gltf.scene.traverse( function( node ) {
         if ( node.isMesh ) { 
             node.castShadow = true;
@@ -62,17 +62,18 @@ loader.load( 'mary.glb', function ( gltf ) {
     } );
     model_1 = gltf.scene;
     mixer = new THREE.AnimationMixer( model_1 );
-    gltf.animations.forEach( ( clip ) => { mixer.clipAction( clip ).play(); } ); //play animation
+    gltf.animations.forEach( ( clip, i ) => { if(i == 3) mixer.clipAction( clip ).play(); } ); //play animation at index 3
 
     // helper = new THREE.SkeletonHelper(model_1); //Show skeleton
     // helper.material.lineWidth = 1;
     // helper.visible = true;
     
-    model_1.position.x = -.15;
-    model_1.position.y = -1.2;
-    model_1.position.z = -1;
-    model_1.rotation.y = -5.2;
-    model_1.rotation.x = .1;
+    // model_1.position.x = -.15;
+    model_1.position.y = -1;
+    model_1.position.z = -2;
+    // model_1.position.z = -1;
+    // model_1.rotation.y = -5.2;
+    // model_1.rotation.x = .1;
 
     //apparently this gives the skinned mesh from scene but gltf.scene seems to be a skinnedmesh
     // gltf.scene.traverse( function ( child ) {
