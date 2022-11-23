@@ -8,7 +8,7 @@
 <div style="align-self: center">
     <p class="black">Tinplate and Clockwork . . . Strange and Charm . . . Superpower Military Set . . . The Divine Joke . . . Threat Thwart . . . RockOnGunner</p>
     <p class="rainbow">Tinplate and Clockwork . . . Strange and Charm . . . Superpower Military Set . . . The Divine Joke . . . Threat Thwart . . . RockOnGunner</p>
-    <img src="phillipshead.png"></img><img src="3dchip.png"></img><img src="namechip.png"></img>
+    <img src="phillipshead.png"></img><a href="https://world4jack.neocities.org/" target="_blank"><img src="3dchip.png"></img></a><a href="https://twitter.com/w311why" target="_blank"><img src="namechip.png"></img></a>
 </div>
 <!-- <audio id="audio1" controls class="pinkify"><source src="Monkey2.mp3" type="audio/mpeg"></audio> -->
 
@@ -22,10 +22,10 @@
     height: fit-content;
     align-content: center;"
 >
-<iframe style="width:50%;" width="540" height="240" src="https://www.youtube-nocookie.com/embed/ipty8AkfsUY?controls=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-<iframe style="width:50%;" width="540" height="240" src="https://www.youtube-nocookie.com/embed/gTZhDjijii8?controls=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-<iframe style="width:50%;" width="540" height="240" src="https://www.youtube-nocookie.com/embed/t2zW7A8AFVc?controls=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-<iframe style="width:50%;" width="540" height="240" src="https://www.youtube-nocookie.com/embed/UE1-yrYq2fg?controls=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe class="pxldisplay" width="540" height="240" src="https://www.youtube-nocookie.com/embed/ipty8AkfsUY?controls=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe class="pxldisplay" width="540" height="240" src="https://www.youtube-nocookie.com/embed/gTZhDjijii8?controls=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe class="pxldisplay" width="540" height="240" src="https://www.youtube-nocookie.com/embed/t2zW7A8AFVc?controls=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe class="pxldisplay" width="540" height="240" src="https://www.youtube-nocookie.com/embed/UE1-yrYq2fg?controls=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <div id="led"></div>
 </div>
 
@@ -49,9 +49,6 @@ three_js_container_1.style.width = "" + window.innerWidth - 0 + "px";
 three_js_container_1.style.height = "" + window.innerHeight - 0 + "px";
 bg.style.width = "" + window.innerWidth + "px";
 bg.style.height = "" + window.innerHeight + "px";
-
-led.style.width = "" + window.innerWidth + "px";
-led.style.height = "" + window.innerHeight + "px";
 }
 </script>
 
@@ -87,4 +84,18 @@ led.style.height = "" + window.innerHeight + "px";
                   1 0 0 0 0
                   0 0 0 1 0 "/>
       </filter>
+</svg>
+
+<svg>
+    <filter id="pixelate" x="0" y="0">
+      <feFlood x="2" y="2" height="1" width="1"></feFlood>
+      
+      <feComposite width="5" height="5"></feComposite>
+      
+      <feTile result="a"></feTile>
+      
+      <feComposite in="SourceGraphic" in2="a" operator="in"></feComposite>
+      
+      <feMorphology operator="dilate" radius="1"></feMorphology>
+    </filter>
 </svg>
