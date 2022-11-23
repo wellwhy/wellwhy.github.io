@@ -4,6 +4,7 @@
 
 <body onresize="repositionElements()">
 
+<div id="camo"></div>
 <div style="align-self: center">
     <p class="black">Tinplate and Clockwork . . . Strange and Charm . . . Superpower Military Set . . . The Divine Joke . . . Threat Thwart . . . RockOnGunner</p>
     <p class="rainbow">Tinplate and Clockwork . . . Strange and Charm . . . Superpower Military Set . . . The Divine Joke . . . Threat Thwart . . . RockOnGunner</p>
@@ -14,7 +15,6 @@
 <div id="speaka"></div>
 <div id="works" style="
     display: flex;
-    filter: drop-shadow(0px 0px 68px black);
     position: fixed;
     bottom: 0px;
     width: 100vw;
@@ -60,6 +60,12 @@ led.style.height = "" + window.innerHeight + "px";
 
 <script id="vertexShader" type="x-shader/x-vertex"></script>
 </script> -->
+
+<script>
+    if(/^((?!chrome|android).)*safari/i.test(navigator.userAgent)){ //if safari, disable drop shadow, as its laggy asf
+        document.getElementById("three_js_container_1").style.filter = "none";
+    }
+</script>
 
 <script src="bg.js"></script>
 

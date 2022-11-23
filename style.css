@@ -241,6 +241,17 @@ body {
     animation: scrolling2 3s cubic-bezier(0.3, 0, 0, 1) infinite;
 }
 
+#camo{
+    width: 100%;
+    height: 32px;
+    background: url(camochip.png) repeat;
+
+    -webkit-animation: scrolling3 15s linear infinite;
+    -moz-animation: scrolling3 15s linear infinite;
+    -o-animation: scrolling3 15s linear infinite;
+    animation: scrolling3 15s linear infinite;
+}
+
 @keyframes scrolling2 {
     from{
         background-position: 0 0;
@@ -248,4 +259,13 @@ body {
     to{
         background-position: 96px 0px;
     }
-  }
+}
+
+@keyframes scrolling3 {
+    from{
+        background-position: 0 0;
+    }
+    to{
+        background-position: 128px 0px;
+    }
+}
