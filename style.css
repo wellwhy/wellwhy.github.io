@@ -43,7 +43,7 @@ body {
     width: 10px;
     z-index: 50;
     overflow: hidden;
-    filter: drop-shadow(74px 78px 60px #000000bb);
+    /* filter: drop-shadow(74px 78px 60px #000000bb); */
 }
 
 
