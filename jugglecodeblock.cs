@@ -485,7 +485,6 @@ public class HackySack : MonoBehaviour
                 gravity = normalGravity;
                 break;
             default:
-                Debug.LogError("Bounce() isn't written to work with this state: " + physicalModifier.ToString());
                 break;
         }
 
@@ -549,13 +548,11 @@ public class HackySack : MonoBehaviour
                     OnStateTweening();
                     break;
                 default:
-                    Debug.LogError("Undefined state.");
                     break;
             }
         } else{
             //Fire raycast to check for a hit, being .1f past amount it will move for SLIGHT protection, but if fast enough, it WILL still go through a wall (FIX NEEDED)
             RaycastHit rHit;
-            DebugExtension.DebugArrow(_rb.position, desiredVelocity, Color.red, Time.fixedDeltaTime, false);
 
             Physics.Raycast(_rb.position, desiredVelocity, out rHit, desiredVelocity.magnitude*Time.fixedDeltaTime + 0.1f, (int)L.SurfaceLayer | (int)L.FoeLayer);
 
@@ -633,12 +630,10 @@ public class HackySack : MonoBehaviour
         Vector3 normalized = v.normalized;
         //Clamp terminal lateral and vertical velocity
         if(Mathf.Abs(v.y) > clampTo){ 
-            Debug.Log(v.y.ToString("F3"));
             v.y = Mathf.Sign(v.y) * clampTo;
         }
         Vector3 v_lateral = new Vector3(v.x, 0f, v.z);
         if(v_lateral.magnitude > clampTo){
-            Debug.Log(v_lateral.magnitude.ToString("F3"));
             v = v_lateral.normalized*clampTo + Vector3.up*v.y;
         }
 
@@ -806,10 +801,7 @@ public class HackySack : MonoBehaviour
             }
         } else{
             float pctAwayFromNormal = Vector3.Angle(fireVel,hit.normal) / 90f;
-            DebugExtension.DebugArrow(rbPos, fireVel / 10f, Color.green*.75f, 8f, false);
             fireVel *= surfaceAbsorbtionCurve.Evaluate(pctAwayFromNormal);
-            Debug.Log("% Away from Normal: " + (pctAwayFromNormal*100f).ToString("F2") + "%\nLeftover Speed: " + (surfaceAbsorbtionCurve.Evaluate(pctAwayFromNormal)*100f).ToString("F1") + "%");
-            DebugExtension.DebugArrow(rbPos - desiredVelocity.normalized, desiredVelocity.normalized, Color.black*.25f, 8f);
         }
 
     //REFLECTION HELPER (Perform modifications to the reflection to help player out):
@@ -836,23 +828,14 @@ public class HackySack : MonoBehaviour
 
             //If we cannot increase reflect angle to our desired minimum, perform basic reflection...
             //...as ballistic trajectory requires upward velocity, and chances are we will just hit the surface again
-                    // Debug.Log("Avail Makeup: " + availableMakeup_Deg +"\n Desrd Makeup: " + makeupDesired_Deg);
             if(makeupDesired_Deg > availableMakeup_Deg){
                     makeupDesired_Deg = availableMakeup_Deg;
-                    // goto setResultNormal;
             }
 
-            // Debug.Log("Makeup performed: " + makeupDesired_Deg);
 
             //Otherwise, increase pitch until to reach our desired minimum
             fireVel = Quaternion.AngleAxis(makeupDesired_Deg, latRefl_Right) * fireVel;
         }
-
-        if(!(Vector3.Angle(Vector3.up,hit.normal) < maxFSA))
-            DebugExtension.DebugArrow(rbPos, fireVel / 10f, Color.green, 8f, false);
-
-
-        // DebugExtension.DebugArrow(rbPos, fireVel.normalized, Color.green, 8f);
 
         setResultNormal:
         // physicalModifier = PhysicalModifier.None;
@@ -883,7 +866,6 @@ public class HackySack : MonoBehaviour
     //Jack said sacks rotate backward of where they are kicked
     void UpdateRendererRotV(){
         float scaler = 10f;
-        // if(rendererRotV.magnitude != 0) Debug.Log(rendererRotV.magnitude);
         float reduceRotVBy = (Vector3.one * Time.deltaTime).magnitude * scaler / 2f;
         if(rendererRotV.magnitude > reduceRotVBy){
             rendererRotV = rendererRotV.normalized * (rendererRotV.magnitude - reduceRotVBy);
@@ -964,7 +946,6 @@ public class HackySack : MonoBehaviour
     void LateUpdate(){
         //Every frame, reduce the accumulated rotational velocity of the renderer
         UpdateRendererRotV();
-        // DebugExtension.DebugCircle(CoreData.Instance.Player.transform.position, Vector3.up, Color.red, Mathf.Lerp(shotEffectiveRangeMin, shotEffectiveRangeMax, shotHoldPct), Time.deltaTime, false);
     }
 
     //Perform physics

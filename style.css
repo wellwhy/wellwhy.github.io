@@ -20,6 +20,22 @@ li{
     color: white;
 }
 
+.emgithub-container{
+    overflow: scroll;
+    width: 960px;
+    height:720px;
+}
+
+.emgithub-file .code-area pre code.hljs {
+    width:max-content;
+    overflow-x: visible !important;
+}
+
+.emgithub-file{
+    width:max-content;
+    overflow:visible !important;
+}
+
 .code{
     width:960px;
     height:720px;
