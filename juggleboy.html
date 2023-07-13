@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<body onresize="repositionElements()">
+<div id="speaka"></div>
+<div id="camo"></div>
+<div style="align-self: center">
+    <p class="black">Project "JuggleBoy"</p>
+    <p class="rainbow">Project "JuggleBoy"</p>
+</div>
+<div class="textblock">
+    <video width="960" height="720" controls>
+        <source src="videos/footJuggling.mp4" type="video/mp4">
+    </video>
+    <p style="text-align:center" class="text"><strong>The Juggling System</strong> provides the player the ability to handle a weapon or item like a hacky sack. A multitude of safeguards and hidden assistance is present in its implementation.</p>
+    <ul>
+        <li class="text">The juggle&#39;s maximum of its trajectory is limited to the top of the camera&#39;s view.</li>
+        <li class="text">With varying starting and ending heights, gravity is variable, solved with a ballistic trajectory calculation, to produce consistent lateral velocity (feels better for the player).</li>
+        <li class="text">Juggled items have slight &quot;magnetism&quot; toward the camera&#39;s center to lightly keep the juggled item more in view.</li>
+        <li class="text">Shooting a juggled item has an &quot;effective range&quot;, in which the velocity will quickly deaden. This allows the item to appear to move extremely fast and impactfully, but not travel too much distance.</li>
+        <li class="text">Reflections off a surface of a shot item will have their angle of reflection increased to make catching a reflected item easier.</li>
+        <li class="text">Jumping off of an item for an extra jump is possible if shot off of a surface.</li>
+        <li class="text">An item is visually shot away from the center of the screen to not obstruct the view, but physically its collider is shot from the center for accurate aiming. Over time after a shot is released, the rendered item is aligned with the physical collider.</li>
+    </ul>
+
+    <code class="code">
+        <embed class="code" src="jugglecodeblock.txt">
+    </code>
+</div>
+</div>
+
+</body>
+
+<script>
+
+var three_js_container_1 = document.getElementById("three_js_container_1");
+var bg = document.getElementById("bg");
+var led = document.getElementById("led");
+
+repositionElements();
+
+function repositionElements(){
+three_js_container_1.style.width = "" + window.innerWidth - 0 + "px";
+three_js_container_1.style.height = "" + window.innerHeight - 0 + "px";
+bg.style.width = "" + window.innerWidth + "px";
+bg.style.height = "" + window.innerHeight + "px";
+}
+</script>
+
+<!-- <script id="fragmentShader" type="x-shader/x-fragment">
+</script>
+
+<script id="vertexShader" type="x-shader/x-vertex"></script>
+</script> -->
+
+<script>
+    if(/^((?!chrome|android).)*safari/i.test(navigator.userAgent)){ //if safari, disable drop shadow, as its laggy asf
+        document.getElementById("three_js_container_1").style.filter = "none";
+    }
+</script>
+
+<script src="bg.js"></script>
+
+<!-- <script src="js/jquery-3.5.0.min.js"></script> -->
+<script src="js/three.js"></script>
+<!-- <script src="js/draco/draco_decoder.js"></script> -->
+<script src="js/GLTFLoader.js"></script>
+<!-- <script src="js/DDSLoader.js"></script> -->
+
+<script src="js/scene.js"></script>
+
+
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">                
+    <filter id="tint">
+        <feColorMatrix
+          type="matrix"
+          values="1 0 0 0 0
+                  0 0 0 0 0
+                  1 0 0 0 0
+                  0 0 0 1 0 "/>
+      </filter>
+</svg>
+
+<svg>
+    <filter id="pixelate" x="0" y="0">
+      <feFlood x="2" y="2" height="1" width="1"></feFlood>
+      
+      <feComposite width="5" height="5"></feComposite>
+      
+      <feTile result="a"></feTile>
+      
+      <feComposite in="SourceGraphic" in2="a" operator="in"></feComposite>
+      
+      <feMorphology operator="dilate" radius="1"></feMorphology>
+    </filter>
+</svg>

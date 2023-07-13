@@ -11,9 +11,31 @@ audio{
 p{
     color:white;
     font-family: ff;
-    font-size: 2em;
+    font-size: 3em;
     width:fit-content;
     margin:0px;
+}
+
+li{
+    color: white;
+}
+
+.code{
+    width:960px;
+    height:720px;
+}
+
+.textblock{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text{
+    width: 960px;
+    font-family: monospace;
+    font-size: 1.5em;
+    padding: .5em;
 }
 
 .white{
@@ -31,8 +53,9 @@ body {
     /* background:rgb(56, 56, 56); */
     /* background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#ffffff)) fixed; */
     /* background: -webkit-gradient(linear, left top, left bottom, from(#006823), to(#00a030)) fixed; */
-        background: -webkit-gradient(linear, left top, left bottom, from(rgb(0 0 0)), to(rgb(134 134 134))) fixed;
-}
+        /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(0 0 0)), to(rgb(134 134 134))) fixed; */
+        background-color: #000000;
+    }
 
 #three_js_container_1 {
     pointer-events: none;
@@ -180,9 +203,11 @@ body {
 }
 
 .rainbow{
-    filter: blur(0.05em) contrast(2.5);
+    text-align: center;
+    filter: blur(0.015em) contrast(2.5);
     overflow: hidden;
     color: #ba0000;
+    width:100%;
     /* filter: saturate(1.0) contrast(3); */
     background: linear-gradient(135deg, #000000 45%, rgb(100 53 53) 50%, #000000 55%);
     /* background: linear-gradient(0deg, #1de840, #1ddde8, #2b1de8); */
@@ -226,14 +251,16 @@ body {
 }
 
 .black{
+    text-align: center;
     color: black;
     background-color: black;
     overflow: hidden;
     position: absolute;
+    width:100%;
 }
 
 #speaka{
-    position: fixed;
+    /* position: fixed; */
     bottom: 240px;
     width: 100%;
     height: 128px;
