@@ -32,6 +32,7 @@ li{
 }
 
 .emgithub-file{
+    border: none !important;
     width:max-content;
     overflow:visible !important;
 }
@@ -70,7 +71,7 @@ body {
     /* background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#ffffff)) fixed; */
     /* background: -webkit-gradient(linear, left top, left bottom, from(#006823), to(#00a030)) fixed; */
         /* background: -webkit-gradient(linear, left top, left bottom, from(rgb(0 0 0)), to(rgb(134 134 134))) fixed; */
-        background-color: #000000;
+        background-color: #2d2d2d;
     }
 
 #three_js_container_1 {
