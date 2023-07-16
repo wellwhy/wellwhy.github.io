@@ -321,6 +321,24 @@ body {
 
 .pxldisplay{
     min-width: 0px;
-    width:50%;
+    width:100%;
     filter:url(#pixelate) blur(1px);
+}
+
+.pxldisplay:hover{
+    min-width: 0px;
+    width:100%;
+    filter: none;
+}
+
+#works{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0px;
+    width: 500px;
+    max-width: 50vw;
+    line-height: 0px;
+    height: fit-content;
+    align-content: center;
 }
