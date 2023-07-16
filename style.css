@@ -9,7 +9,8 @@ audio{
     padding: 0px;
 }
 video{
-    max-width:52vw;
+    max-width:85vw;
+    max-height: 85vw;
 }
 p{
     color:white;
@@ -25,7 +26,8 @@ li{
 
 .emgithub-container{
     overflow: scroll;
-    width: 52vw;
+    width: 960px;
+    max-width:85vw;
     height:720px;
 }
 
@@ -41,7 +43,8 @@ li{
 }
 
 .code{
-    width:52vw;
+    width:960px;
+    max-width:85vw;
     height:720px;
 }
 
@@ -52,7 +55,8 @@ li{
 }
 
 .text{
-    width: 52vw;
+    width: 960px;
+    max-width:85vw;
     font-family: monospace;
     font-size: 1.5em;
     padding: .5em;
