@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; URL=https://jacobherrera.itch.io/hyperkidmorph2roper">
-    <link rel="canonical" href="https://jacobherrera.itch.io/hyperkidmorph2roper">
-  </head>
-  <body>
+<head>
+    <title>W311WHY</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: monospace;
+        }
+        a {
+            color: #ff69b4;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <img src="eyes.jpg">
     <p>If you are not redirected automatically, <a href="https://jacobherrera.itch.io/hyperkidmorph2roper">click here</a>.</p>
   </body>
 </html>
