@@ -1,1 +1,3 @@
 Redirect 301 /game https://jacobherrera.itch.io/hyperkidmorph2roper
+RewriteEngine On
+RewriteRule ^game$ game/index.html [L]
